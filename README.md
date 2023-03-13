@@ -1,6 +1,6 @@
-# Next-Gen
+# EngineX
 
-CLI tool for generating NextJs API Routes in NestJS-like structure that scaffolds data model, handlers, DTOs, tests, and SWR hooks for frontend.
+CLI tool for generating NextJs API Routes in NestJS-like structure that scaffolds data model, handlers, DTOs, tests, and react-query hooks for frontend.
 
 ## Installation
 

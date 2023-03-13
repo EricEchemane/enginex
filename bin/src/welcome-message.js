@@ -2,7 +2,7 @@ import chalk from 'chalk';
 import boxen from 'boxen';
 
 const welcome = chalk.bold(
-	'WELCOME to CIRE\n\nCIRE is a tool for generating model and CRUD api routes in NextJs with mongoose and react-query'
+	'WELCOME to EngineX\n\nCLI tool for generating NextJs API Routes in NestJS-like structure that scaffolds data model, handlers, DTOs, tests, and react-query hooks for frontend.'
 );
 export const welcomeMessage = boxen(welcome, {
 	textAlignment: 'center',

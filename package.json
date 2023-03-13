@@ -9,7 +9,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/EricEchemane/next-gen.git"
+		"url": "git+https://github.com/EricEchemane/enginex.git"
 	},
 	"keywords": [
 		"CLI",
@@ -19,9 +19,9 @@
 	"author": "Eric Echemane",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/EricEchemane/next-gen/issues"
+		"url": "https://github.com/EricEchemane/enginex/issues"
 	},
-	"homepage": "https://github.com/EricEchemane/next-gen#readme",
+	"homepage": "https://github.com/EricEchemane/enginex#readme",
 	"bin": {
 		"enginex": "bin/index.js"
 	},

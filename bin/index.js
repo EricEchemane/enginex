@@ -7,7 +7,7 @@ import { welcomeMessage } from './src/welcome-message.js';
 import { Logger, scaffold } from './src/helpers.js';
 
 yargs(hideBin(process.argv))
-	.scriptName('gen')
+	.scriptName('engine')
 	.usage('$0 <cmd> [args]')
 	.command(
 		'$0',
@@ -21,7 +21,7 @@ yargs(hideBin(process.argv))
 	.alias('h', 'hooks')
 	.describe('h', 'Generates react-query hooks for each route')
 	.command(
-		'routes [route-name]',
+		'create [route-name]',
 		'Generates REST endpoints of the given route-name with DTOs.',
 		(yargs) => {
 			yargs.positional('route-name', {
@@ -113,10 +113,6 @@ yargs(hideBin(process.argv))
 			if (argv.h) {
 				Logger.info(`Generating react-query hooks...`);
 			}
-			//if (argv.q) {
-			//	// Generate react-query hooks
-			//	console.log(chalk.bold(`=> Creating ${model} react-query hooks...`));
-			//}
 		}
 	)
 	.help().argv;
