@@ -60,14 +60,14 @@ yargs(hideBin(process.argv))
 
 			const SOURCE_FILES = {
 				dto: {
-					create: currentDir + '/bin/template/dto/create-todo.dto.ts',
-					update: currentDir + '/bin/template/dto/update-todo.dto.ts',
+					create: './bin/template/dto/create-todo.dto.ts',
+					update: './bin/template/dto/update-todo.dto.ts',
 				},
-				guard: currentDir + '/bin/template/guards/auth.guard.ts',
+				guard: './bin/template/guards/auth.guard.ts',
 				hooks: {
-					getAll: currentDir + `/bin/template/hooks/useGetTodos.ts`,
+					getAll: `./bin/template/hooks/useGetTodos.ts`,
 				},
-				handler: currentDir + '/bin/template/todo/[[...params]].ts',
+				handler: './bin/template/todo/[[...params]].ts',
 			};
 
 			const DESTINATION_FILES = {
