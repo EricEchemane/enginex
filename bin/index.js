@@ -52,15 +52,15 @@ yargs(hideBin(process.argv))
 				Logger.error('You need to have a src folder');
 				return;
 			}
-			if (!fs.existsSync(currentDir + '/src/engine')) {
-				Logger.info(`Creating engine directory`);
-				fs.mkdirSync(currentDir + '/src/engine');
+			if (!fs.existsSync(currentDir + '/src/engines')) {
+				Logger.info(`Creating engines directory`);
+				fs.mkdirSync(currentDir + '/src/engines');
 			}
 
 			Logger.info(`Creating directories`);
-			fs.mkdirSync(currentDir + `/src/engine/${routeName}`);
-			fs.mkdirSync(currentDir + `/src/engine/${routeName}/dto`);
-			fs.mkdirSync(currentDir + `/src/engine/${routeName}/guards`);
+			fs.mkdirSync(currentDir + `/src/engines/${routeName}`);
+			fs.mkdirSync(currentDir + `/src/engines/${routeName}/dto`);
+			fs.mkdirSync(currentDir + `/src/engines/${routeName}/guards`);
 			fs.mkdirSync(currentDir + `/src/pages/api/${routeName}`);
 
 			const SOURCE_FILES = {
@@ -79,16 +79,16 @@ yargs(hideBin(process.argv))
 				dto: {
 					create:
 						currentDir +
-						`/src/engine/${routeName}/dto/create-${routeName}.dto.ts`,
+						`/src/engines/${routeName}/dto/create-${routeName}.dto.ts`,
 					update:
 						currentDir +
-						`/src/engine/${routeName}/dto/update-${routeName}.dto.ts`,
+						`/src/engines/${routeName}/dto/update-${routeName}.dto.ts`,
 				},
-				guard: currentDir + `/src/engine/${routeName}/guards/auth.guard.ts`,
+				guard: currentDir + `/src/engines/${routeName}/guards/auth.guard.ts`,
 				hooks: {
 					getAll:
 						currentDir +
-						`/src/engine/${routeName}/hooks/useGet${routeNameTitleCase}s.ts`,
+						`/src/engines/${routeName}/hooks/useGet${routeNameTitleCase}s.ts`,
 				},
 				handler: currentDir + `/src/pages/api/${routeName}/[[...params]].ts`,
 			};
@@ -110,7 +110,7 @@ yargs(hideBin(process.argv))
 
 			if (argv.h) {
 				Logger.info(`Generating react-query hooks`);
-				fs.mkdirSync(currentDir + `/src/engine/${routeName}/hooks`);
+				fs.mkdirSync(currentDir + `/src/engines/${routeName}/hooks`);
 				scaffold(
 					SOURCE_FILES.hooks.getAll,
 					DESTINATION_FILES.hooks.getAll,
