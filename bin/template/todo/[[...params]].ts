@@ -8,8 +8,8 @@ import {
 	ValidationPipe,
 } from 'next-api-decorators';
 
-import { CreateTodoDTO } from '@/engine/todo/dto/create-todo.dto';
-import { UpdateTodoDto } from '@/engine/todo/dto/update-todo.dto';
+import { CreateTodoDTO } from '@/engines/todo/dto/create-todo.dto';
+import { UpdateTodoDto } from '@/engines/todo/dto/update-todo.dto';
 
 class Todo {
 	@Get()
