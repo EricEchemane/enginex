@@ -1,11 +1,12 @@
 {
 	"name": "@echemane/enginex",
 	"type": "module",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "CLI tool for generating NextJs API Routes in NestJS-like structure that scaffolds data model, handlers, DTOs, tests, and SWR hooks for frontend.",
 	"main": "bin/index.js",
 	"scripts": {
-		"scaff": "mkdir src && mkdir src\\engine && mkdir src\\pages && mkdir src\\pages\\api"
+		"scaff": "mkdir src && mkdir src\\engine && mkdir src\\pages && mkdir src\\pages\\api",
+		"publish": "npm publish --access=public"
 	},
 	"repository": {
 		"type": "git",
