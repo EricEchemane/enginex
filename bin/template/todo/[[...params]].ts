@@ -8,12 +8,12 @@ import {
 	ValidationPipe,
 } from 'next-api-decorators';
 
-import { CreateTodoDTO } from '../dto/create-todo.dto';
-import { UpdateTodoDto } from '../dto/update-todo.dto';
+import { CreateTodoDTO } from '@/engine/todo/dto/create-todo.dto';
+import { UpdateTodoDto } from '@/engine/todo/dto/update-todo.dto';
 
 class Todo {
 	@Get()
-	all(): {
+	all() {
 		return 'all todos';
 	}
 

@@ -1,7 +1,7 @@
 {
 	"name": "@echemane/enginex",
 	"type": "module",
-	"version": "0.2.1",
+	"version": "0.2.2",
 	"description": "CLI tool for generating NextJs API Routes in NestJS-like structure that scaffolds data model, handlers, DTOs, tests, and react-query hooks for frontend.",
 	"main": "bin/index.js",
 	"scripts": {

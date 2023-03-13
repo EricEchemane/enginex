@@ -2,9 +2,14 @@
 
 import yargs from 'yargs';
 import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import { hideBin } from 'yargs/helpers';
 import { welcomeMessage } from './src/welcome-message.js';
 import { Logger, scaffold } from './src/helpers.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 yargs(hideBin(process.argv))
 	.scriptName('enginex')
@@ -50,24 +55,24 @@ yargs(hideBin(process.argv))
 			if (!fs.existsSync(currentDir + '/src/engine')) {
 				Logger.info(`Creating engine directory`);
 				fs.mkdirSync(currentDir + '/src/engine');
-				fs.mkdirSync(currentDir + `/src/engine/${routeName}`);
 			}
 
 			Logger.info(`Creating directories`);
+			fs.mkdirSync(currentDir + `/src/engine/${routeName}`);
 			fs.mkdirSync(currentDir + `/src/engine/${routeName}/dto`);
 			fs.mkdirSync(currentDir + `/src/engine/${routeName}/guards`);
 			fs.mkdirSync(currentDir + `/src/pages/api/${routeName}`);
 
 			const SOURCE_FILES = {
 				dto: {
-					create: './bin/template/dto/create-todo.dto.ts',
-					update: './bin/template/dto/update-todo.dto.ts',
+					create: __dirname + '/template/dto/create-todo.dto.ts',
+					update: __dirname + '/template/dto/update-todo.dto.ts',
 				},
-				guard: './bin/template/guards/auth.guard.ts',
+				guard: __dirname + '/template/guards/auth.guard.ts',
 				hooks: {
-					getAll: `./bin/template/hooks/useGetTodos.ts`,
+					getAll: __dirname + `/template/hooks/useGetTodos.ts`,
 				},
-				handler: './bin/template/todo/[[...params]].ts',
+				handler: __dirname + '/template/todo/[[...params]].ts',
 			};
 
 			const DESTINATION_FILES = {
