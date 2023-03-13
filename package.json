@@ -1,5 +1,5 @@
 {
-	"name": "@echemane/next-gen",
+	"name": "@echemane/enginex",
 	"type": "module",
 	"version": "0.1.0",
 	"description": "CLI tool for generating NextJs API Routes in NestJS-like structure that scaffolds data model, handlers, DTOs, tests, and SWR hooks for frontend.",
@@ -14,7 +14,7 @@
 	"keywords": [
 		"CLI",
 		"NextJs",
-		"SWR"
+		"react-query"
 	],
 	"author": "Eric Echemane",
 	"license": "MIT",

@@ -7,7 +7,7 @@ import { welcomeMessage } from './src/welcome-message.js';
 import { Logger, scaffold } from './src/helpers.js';
 
 yargs(hideBin(process.argv))
-	.scriptName('engine')
+	.scriptName('enginex')
 	.usage('$0 <cmd> [args]')
 	.command(
 		'$0',
