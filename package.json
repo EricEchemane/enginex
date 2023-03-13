@@ -5,7 +5,7 @@
 	"description": "CLI tool for generating NextJs API Routes in NestJS-like structure that scaffolds data model, handlers, DTOs, tests, and SWR hooks for frontend.",
 	"main": "bin/index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"scaff": "mkdir src && mkdir src\\engine && mkdir src\\pages && mkdir src\\pages\\api"
 	},
 	"repository": {
 		"type": "git",

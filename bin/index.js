@@ -18,6 +18,8 @@ yargs(hideBin(process.argv))
 		}
 	)
 	.alias('v', 'version')
+	.alias('h', 'hooks')
+	.describe('h', 'Generates react-query hooks for each route')
 	.command(
 		'routes [route-name]',
 		'Generates REST endpoints of the given route-name with DTOs.',
@@ -36,6 +38,8 @@ yargs(hideBin(process.argv))
 			}
 
 			routeName = routeName.toLowerCase();
+			const routeNameTitleCase =
+				routeName.charAt(0).toUpperCase() + routeName.slice(1);
 
 			const currentDir = process.cwd();
 
@@ -53,7 +57,7 @@ yargs(hideBin(process.argv))
 			fs.mkdirSync(currentDir + `/src/engine/${routeName}`);
 			fs.mkdirSync(currentDir + `/src/engine/${routeName}/dto`);
 			fs.mkdirSync(currentDir + `/src/engine/${routeName}/guards`);
-			//fs.mkdirSync(currentDir + `/src/engine/${routeName}/hooks`);
+			fs.mkdirSync(currentDir + `/src/engine/${routeName}/hooks`);
 			fs.mkdirSync(currentDir + `/src/pages/api/${routeName}`);
 
 			const SOURCE_FILES = {
@@ -62,6 +66,9 @@ yargs(hideBin(process.argv))
 					update: currentDir + '/bin/template/dto/update-todo.dto.ts',
 				},
 				guard: currentDir + '/bin/template/guards/auth.guard.ts',
+				hooks: {
+					getAll: currentDir + `/bin/template/hooks/useGetTodos.ts`,
+				},
 				handler: currentDir + '/bin/template/todo/[[...params]].ts',
 			};
 
@@ -75,6 +82,11 @@ yargs(hideBin(process.argv))
 						`/src/engine/${routeName}/dto/update-${routeName}.dto.ts`,
 				},
 				guard: currentDir + `/src/engine/${routeName}/guards/auth.guard.ts`,
+				hooks: {
+					getAll:
+						currentDir +
+						`/src/engine/${routeName}/hooks/useGet${routeNameTitleCase}s.ts`,
+				},
 				handler: currentDir + `/src/pages/api/${routeName}/[[...params]].ts`,
 			};
 
@@ -90,13 +102,17 @@ yargs(hideBin(process.argv))
 				DESTINATION_FILES.dto.update,
 				routeName
 			);
+			scaffold(
+				SOURCE_FILES.hooks.getAll,
+				DESTINATION_FILES.hooks.getAll,
+				routeName
+			);
 			scaffold(SOURCE_FILES.guard, DESTINATION_FILES.guard, routeName);
 			scaffold(SOURCE_FILES.handler, DESTINATION_FILES.handler, routeName);
 
-			//if (argv.r) {
-			//	// Generate routes
-			//	console.log(chalk.bold(`=> Creating ${model} routes...`));
-			//}
+			if (argv.h) {
+				Logger.info(`Generating react-query hooks...`);
+			}
 			//if (argv.q) {
 			//	// Generate react-query hooks
 			//	console.log(chalk.bold(`=> Creating ${model} react-query hooks...`));
