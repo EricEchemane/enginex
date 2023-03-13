@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-import chalk from 'chalk';
 import yargs from 'yargs';
 import fs from 'fs';
 import { hideBin } from 'yargs/helpers';
 import { welcomeMessage } from './src/welcome-message.js';
+import { Logger, scaffold } from './src/helpers.js';
 
 yargs(hideBin(process.argv))
 	.scriptName('gen')
@@ -31,42 +31,65 @@ yargs(hideBin(process.argv))
 			let routeName = argv['route-name'];
 
 			if (!routeName) {
-				console.log(chalk.redBright('⚠️ Please specify a singular route name'));
+				Logger.error('Please specify a singular route name');
 				return;
 			}
 
 			routeName = routeName.toLowerCase();
 
-			const routeNameTitle =
-				routeName.charAt(0).toUpperCase() + routeName.slice(1);
-
 			const currentDir = process.cwd();
 
 			if (!fs.existsSync(currentDir + '/src')) {
-				console.log(chalk.redBright('⚠️ You need to have a src folder'));
+				Logger.error('You need to have a src folder');
 				return;
 			}
 			if (!fs.existsSync(currentDir + '/src/engine')) {
-				console.log(chalk.bold(`=> Creating engine directory...`));
+				Logger.info(`Creating engine directory...`);
 				fs.mkdirSync(currentDir + '/src/engine');
+				fs.mkdirSync(currentDir + `/src/engine/${routeName}`);
 			}
 
-			//const sourceFilePath = currentDir + '/bin/templates/temp.model.ts';
-			//const destinationFilePath =
-			//	currentDir + `/models/${model.toLowerCase()}.model.ts`;
+			Logger.info(`Creating directories...`);
+			fs.mkdirSync(currentDir + `/src/engine/${routeName}`);
+			fs.mkdirSync(currentDir + `/src/engine/${routeName}/dto`);
+			//fs.mkdirSync(currentDir + `/src/engine/${routeName}/guards`);
+			//fs.mkdirSync(currentDir + `/src/engine/${routeName}/hooks`);
+			//fs.mkdirSync(currentDir + `/src/pages/api/${routeName}`);
 
-			//fs.readFile(sourceFilePath, 'utf8', (err, data) => {
-			//	if (err) throw err;
+			const SOURCE_FILES = {
+				dto: {
+					create: currentDir + '/bin/template/dto/create-todo.dto.ts',
+					update: currentDir + '/bin/template/dto/update-todo.dto.ts',
+				},
+				guard: currentDir + '/bin/template/guards/auth.guard.ts',
+				handler: currentDir + '/bin/template/todo/[[...params]].ts',
+			};
 
-			//	// Replace all occurrences of the word 'foo' with 'bar' in the data
-			//	const replacedData = data.replace(/temp/g, model);
+			const DESTINATION_FILES = {
+				dto: {
+					create:
+						currentDir +
+						`/src/engine/${routeName}/dto/create-${routeName}.dto.ts`,
+					update:
+						currentDir +
+						`/src/engine/${routeName}/dto/update-${routeName}.dto.ts`,
+				},
+				guard: currentDir + `/src/engine/${routeName}/guards/auth.guard.ts`,
+				handler: currentDir + `/src/pages/api/${routeName}/[[...params]].ts`,
+			};
 
-			//	// Write the replaced data to the destination file
-			//	fs.writeFile(destinationFilePath, replacedData, (err) => {
-			//		if (err) throw err;
-			//		console.log(chalk.greenBright(`=> ${model} model has been created`));
-			//	});
-			//});
+			Logger.info(`Scaffolding your files...`);
+
+			scaffold(
+				SOURCE_FILES.dto.create,
+				DESTINATION_FILES.dto.create,
+				routeName
+			);
+			scaffold(
+				SOURCE_FILES.dto.update,
+				DESTINATION_FILES.dto.update,
+				routeName
+			);
 
 			//if (argv.r) {
 			//	// Generate routes

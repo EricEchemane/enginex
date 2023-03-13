@@ -9,7 +9,7 @@ import {
 } from 'next-api-decorators';
 
 import { CreateTodoDTO } from '../dto/create-todo.dto';
-import { UpdateUserDto } from '../dto/update-todo.dto';
+import { UpdateTodoDto } from '../dto/update-todo.dto';
 
 class Todo {
 	@Get()
@@ -30,7 +30,7 @@ class Todo {
 	@Patch('/:id')
 	update(
 		@Param('id') id: string,
-		@Body(ValidationPipe) body: Partial<UpdateUserDto>
+		@Body(ValidationPipe) body: Partial<UpdateTodoDto>
 	) {
 		return 'updated todo';
 	}

@@ -1,8 +1,8 @@
 import { IsBoolean, IsNotEmpty } from 'class-validator';
 
-export class UpdateUserDto {
+export class UpdateTodoDto {
 	@IsNotEmpty()
-	title!: string;
+	property_one!: string;
 	@IsBoolean()
-	isDone!: boolean;
+	property_two!: boolean;
 }
