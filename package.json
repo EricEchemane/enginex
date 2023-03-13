@@ -1,5 +1,6 @@
 {
 	"name": "@echemane/next-gen",
+	"type": "module",
 	"version": "0.1.0",
 	"description": "CLI tool for generating NextJs API Routes in NestJS-like structure that scaffolds data model, handlers, DTOs, tests, and SWR hooks for frontend.",
 	"main": "bin/index.js",
@@ -23,5 +24,10 @@
 	"homepage": "https://github.com/EricEchemane/next-gen#readme",
 	"bin": {
 		"enginex": "bin/index.js"
+	},
+	"dependencies": {
+		"boxen": "^7.0.2",
+		"chalk": "^5.2.0",
+		"yargs": "^17.7.1"
 	}
 }
