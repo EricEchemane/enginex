@@ -14,14 +14,14 @@ export function scaffold(source, destination, routeName) {
 	fs.readFile(source, 'utf8', (err, data) => {
 		if (err) throw err;
 
-		let replacedData = data.replace('todo', routeName.toLowerCase());
+		let replacedData = data.replaceAll(/todo/g, routeName.toLowerCase());
 
 		fs.writeFile(destination, replacedData, (err) => {
 			if (err) throw err;
 		});
 
-		replacedData = replacedData.replace(
-			'Todo',
+		replacedData = replacedData.replaceAll(
+			/Todo/g,
 			routeName.charAt(0).toUpperCase() + routeName.slice(1)
 		);
 

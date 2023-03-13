@@ -52,9 +52,9 @@ yargs(hideBin(process.argv))
 			Logger.info(`Creating directories...`);
 			fs.mkdirSync(currentDir + `/src/engine/${routeName}`);
 			fs.mkdirSync(currentDir + `/src/engine/${routeName}/dto`);
-			//fs.mkdirSync(currentDir + `/src/engine/${routeName}/guards`);
+			fs.mkdirSync(currentDir + `/src/engine/${routeName}/guards`);
 			//fs.mkdirSync(currentDir + `/src/engine/${routeName}/hooks`);
-			//fs.mkdirSync(currentDir + `/src/pages/api/${routeName}`);
+			fs.mkdirSync(currentDir + `/src/pages/api/${routeName}`);
 
 			const SOURCE_FILES = {
 				dto: {
@@ -90,6 +90,8 @@ yargs(hideBin(process.argv))
 				DESTINATION_FILES.dto.update,
 				routeName
 			);
+			scaffold(SOURCE_FILES.guard, DESTINATION_FILES.guard, routeName);
+			scaffold(SOURCE_FILES.handler, DESTINATION_FILES.handler, routeName);
 
 			//if (argv.r) {
 			//	// Generate routes
