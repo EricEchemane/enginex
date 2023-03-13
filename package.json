@@ -1,5 +1,5 @@
 {
-	"name": "exgen",
+	"name": "@ericechemane/enginex",
 	"version": "0.1.0",
 	"description": "CLI tool for generating NextJs API Routes in NestJS-like structure that scaffolds data model, handlers, DTOs, tests, and SWR hooks for frontend.",
 	"main": "bin/index.js",
@@ -20,5 +20,8 @@
 	"bugs": {
 		"url": "https://github.com/EricEchemane/Exgen/issues"
 	},
-	"homepage": "https://github.com/EricEchemane/Exgen#readme"
+	"homepage": "https://github.com/EricEchemane/Exgen#readme",
+	"bin": {
+		"enginex": "bin/index.js"
+	}
 }
