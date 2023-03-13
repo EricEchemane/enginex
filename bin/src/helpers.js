@@ -2,9 +2,9 @@ import chalk from 'chalk';
 import fs from 'fs';
 
 export const Logger = {
-	info: (message) => console.log(chalk.bold(`=> ${message}...`)),
+	info: (message) => console.log(chalk.bold(`=> ${message}`)),
 	error: (message) => console.log(chalk.redBright(`❌ ${message}`)),
-	warn: (message) => console.log(chalk.yellowBright(`⚠️ ${message}...`)),
+	success: (message) => console.log(chalk.greenBright.bold(`✅ ${message}`)),
 };
 
 export function scaffold(source, destination, routeName) {
