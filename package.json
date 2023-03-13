@@ -1,24 +1,24 @@
 {
-  "name": "exgen",
-  "version": "0.1.0",
-  "description": "CLI tool for generating NextJs API Routes in NestJS-like structure that scaffolds data model, handlers, DTOs, tests, and SWR hooks for frontend.",
-  "main": "main/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/EricEchemane/Exgen.git"
-  },
-  "keywords": [
-    "CLI",
-    "NextJs",
-    "SWR"
-  ],
-  "author": "Eric Echemane",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/EricEchemane/Exgen/issues"
-  },
-  "homepage": "https://github.com/EricEchemane/Exgen#readme"
+	"name": "exgen",
+	"version": "0.1.0",
+	"description": "CLI tool for generating NextJs API Routes in NestJS-like structure that scaffolds data model, handlers, DTOs, tests, and SWR hooks for frontend.",
+	"main": "bin/index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/EricEchemane/Exgen.git"
+	},
+	"keywords": [
+		"CLI",
+		"NextJs",
+		"SWR"
+	],
+	"author": "Eric Echemane",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/EricEchemane/Exgen/issues"
+	},
+	"homepage": "https://github.com/EricEchemane/Exgen#readme"
 }
